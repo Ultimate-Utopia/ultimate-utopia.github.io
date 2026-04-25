@@ -12,7 +12,13 @@
 	style="animation-delay: {index * 0.08}s"
 >
 	<div class="card-sigil">
-		<span class="sigil-letter">{member.name[0]}</span>
+		<div class="sigil-inner">
+		{#if member.image}
+            <img src={member.image} alt={member.name} class="sigil-image" />
+        {:else}
+            <span class="sigil-letter">{member.name[0]}</span>
+        {/if}
+		</div>
 	</div>
 
 	<div class="card-frame">
@@ -103,11 +109,31 @@
 
 	/* Central sigil */
 	.card-sigil {
+		overflow: hidden;
 		position: absolute;
+		width: 40px;
+		height: 40px;
 		top: -1px;
 		left: 50%;
-		transform: translateX(-50%);
-		z-index: 2;
+		transform: translateX(-45%);
+		z-index: 10;
+	}
+
+	.sigil-inner {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		z-index: 10;
+	}
+
+	.sigil-image {
+		position: absolute;
+		width: 90%;
+		height: 90%;
+		overflow: hidden;
+		object-fit: cover;
+
+		transform: rotate(45deg);
 	}
 
 	.sigil-letter {

@@ -7,6 +7,7 @@ export interface Member {
 	id: string;
 	name: string;
 	nameEn: string;
+	image?: string;
 	title: string;
 	description: string;
 	schedule: string;
@@ -173,6 +174,7 @@ export const members: Member[] = [
 	{
 		id: 'colamoon',
 		name: '可樂月月',
+		image: "/images/members/colamoon_profilepic.png",
 		nameEn: 'ColaMoon',
 		title: '愛拆家的哈士奇教主',
 		description: '吃喝旅遊散播愛與歡樂',

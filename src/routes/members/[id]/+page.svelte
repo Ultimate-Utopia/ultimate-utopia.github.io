@@ -50,12 +50,18 @@
 	<article class="member-content">
 		<!-- Header / Identity -->
 		<header class="member-header">
+
 			<div class="header-sigil">
-				<div class="sigil-frame">
-					<span class="sigil-char">{data.member.name[0]}</span>
-				</div>
-				<div class="sigil-glow"></div>
-			</div>
+    			<div class="sigil-frame">
+        		{#if data.member.image}
+            		<img src={data.member.image} alt={data.member.name} class="sigil-image" />
+        		{:else}
+            		<span class="sigil-char">{data.member.name[0]}</span>
+        		{/if}
+    		</div>
+
+    <div class="sigil-glow"></div>
+</div>
 
 			<div class="header-ornament">
 				<div class="orn-line"></div>
@@ -205,12 +211,13 @@
 
 	.header-sigil {
 		position: relative;
-		width: 80px;
-		height: 80px;
+		width: 180px;
+		height: 180px;
 		margin: 0 auto 2rem;
 	}
 
 	.sigil-frame {
+		overflow: hidden;
 		position: absolute;
 		inset: 0;
 		display: flex;
@@ -218,6 +225,13 @@
 		justify-content: center;
 		border: 1px solid rgba(140, 105, 20, 0.3);
 		transform: rotate(45deg);
+	}
+
+	.sigil-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
 	}
 
 	.sigil-char {
@@ -246,6 +260,7 @@
 		justify-content: center;
 		gap: 0.75rem;
 		margin-bottom: 1.5rem;
+		margin-top: 70px;
 	}
 
 	.orn-line {
